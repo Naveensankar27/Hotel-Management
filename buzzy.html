@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buzz</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      background: white;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      z-index: 10;
+    }
+    header .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #e53935;
+      font-style: italic;
+      font-family: Cascadia Code Italic;
+    }
+    header nav button {
+      margin-left: 10px;
+      padding: 8px 14px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .search-bar {
+      display: flex;
+      gap: 10px;
+      padding: 15px 20px;
+      background: #fff;
+    }
+    .search-bar input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .search-bar select {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .categories {
+      padding: 10px 20px;
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+    }
+    .categories button {
+      padding: 8px 16px;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      background: #fff;
+      cursor: pointer;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 20px;
+      padding: 20px;
+    }
+    .restaurants {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .card h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+    .card .info {
+      font-size: 14px;
+      color: #666;
+    }
+    .card button {
+      margin-top: auto;
+      padding: 8px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background: #e53935;
+      color: #fff;
+    }
+    .map {
+      background: #fafafa;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      height: 400px;
+      text-align: center;
+      color: #888;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #fff;
+      margin-top: 30px;
+      border-top: 1px solid #ddd;
+      font-size: 14px;
+      color: #666;
+    }
+    .add-to-cart {
+      display: inline-block;
+      background: #e74c3c;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      text-decoration: none;
+      margin-top: 10px;
+    }
+
+    .add-to-cart:hover {
+      background: #c0392b;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      z-index: 1000;
+    }
+    .modal:target {
+      display: block;
+    }
+
+    .modal-content {
+      background: white;
+      margin: 10% auto;
+      padding: 20px;
+      width: 300px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .modal-content input {
+      width: 90%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .login-btn {
+      background: #e74c3c;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .close {
+      display: block;
+      margin-top: 10px;
+      color: #555;
+      text-decoration: none;
+    }
+     nav p{
+      cursor: pointer;
+      text-decoration: none;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Buzzy Kitchen</div>
+    <nav>
+           <p class="home"><a href="./home.html">🏠︎</a></p>
+    </nav>
+  </header>
+
+  <div class="search-bar">
+    <input type="text" placeholder="Search for restaurants, dishes or cuisines">
+    <select>
+      <option>Sort: Popular</option>
+      <option>Rating</option>
+      <option>Delivery Time</option>
+    </select>
+  </div>
+
+  <div class="categories">
+    <button>Pizza</button>
+    <button>Burgers</button>
+    <button>Indian</button>
+    <button>Chinese</button>
+    <button>Desserts</button>
+    <button>Healthy</button>
+    <button>Drinks</button>
+    <button>More</button>
+  </div>
+
+  <div class="container">
+    <div class="restaurants">
+      <div class="card">
+        <img src="./assets/pizza.jpg" alt="Pizza">
+        <h3>Red Pepper Pizza</h3>
+        <div class="info">Pizza • ₹400 for two • 25-35 mins</div>
+        <a href="#loginModal" class="add-to-cart">🛒 Add to Cart</a>
+      </div>
+       <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <h2>Login / Sign Up</h2>
+      <input type="text" placeholder="Email">
+      <input type="password" placeholder="Password">
+      <button class="login-btn">Login</button>
+      <p>Don't have an account? <a href="./signup.html">Sign Up</a></p>
+      <a href="#" class="close">Close</a>
+    </div>
+  </div>
+   <div class="card">
+        <img src="./assets/salad.jpg" alt="Pizza">
+        <h3>Green Bowl</h3>
+        <div class="info">Healthy • ₹550 for two • 25-35 mins</div>
+        <a href="#loginModal" class="add-to-cart">🛒 Add to Cart</a>
+      </div>
+       <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <h2>Login / Sign Up</h2>
+      <input type="text" placeholder="Email">
+      <input type="password" placeholder="Password">
+      <button class="login-btn">Login</button>
+      <p>Don't have an account? <a href="./signup.html">Sign Up</a></p>
+      <a href="#" class="close">Close</a>
+    </div>
+  </div>
+   <div class="card">
+        <img src="./assets/indian food.jpg" alt="Pizza">
+        <h3>Spicy House</h3>
+        <div class="info">Indian • ₹600 for two • 25-35 mins</div>
+        <a href="#loginModal" class="add-to-cart">🛒 Add to Cart</a>
+      </div>
+       <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <h2>Login / Sign Up</h2>
+      <input type="text" placeholder="Email">
+      <input type="password" placeholder="Password">
+      <button class="login-btn">Login</button>
+      <p>Don't have an account? <a href="./signup.html">Sign Up</a></p>
+      <a href="#" class="close">Close</a>
+    </div>
+  </div>
+   <div class="card">
+        <img src="./assets/chineese.webp" alt="Pizza">
+        <h3>Dragon Express</h3>
+        <div class="info">Chinese • ₹350 for two • 25-35 mins</div>
+        <a href="#loginModal" class="add-to-cart">🛒 Add to Cart</a>
+      </div>
+       <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <h2>Login / Sign Up</h2>
+      <input type="text" placeholder="Email">
+      <input type="password" placeholder="Password">
+      <button class="login-btn">Login</button>
+      <p>Don't have an account? <a href="./signup.html">Sign Up</a></p>
+      <a href="#" class="close">Close</a>
+    </div>
+  </div>
+    </div>
+    <div class="map">
+      Map Placeholder
+    </div> 
+  </div>
+  <footer>
+  </footer>
+</body>
+</html>

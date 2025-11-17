@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home page</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      background: white;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
+    header .logo {
+      font-size: 28px;
+      color: black;
+      font-family: Gilroy Bold; 
+      font-weight: bold;
+      margin-left: 10px;
+      margin-top: 5px;;
+      font-family: Cascadia Code Italic;
+    }
+    header nav button {
+      margin-left: 10px;
+      padding: 8px 14px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .search-bar {
+      display: flex;
+      gap: 10px;
+      padding: 15px 20px;
+      background: #fff;
+    }
+    .search-bar input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 900px;
+    }
+    .search-bar select {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .categories {
+      padding: 10px 20px;
+      display: flex;
+      gap: 10px;
+    }
+    .categories button {
+      padding: 8px 16px;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      background: #fff;
+      cursor: pointer;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 20px;
+      padding: 20px;
+    }
+    .restaurants {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .card h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+    .card .info {
+      font-size: 14px;
+      color: #666;
+    }
+    .card button {
+      margin-top: auto;
+      padding: 8px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background: #e53935;
+      color: #fff;
+    }
+    .map {
+      background: #fafafa;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      height: 400px;
+      text-align: center;
+      color: #888;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #fff;
+      margin-top: 30px;
+      border-top: 1px solid #ddd;
+      font-size: 14px;
+      color: #666;
+    }
+    .card button a {
+      text-decoration: none;
+      color: white;
+    }
+    .login a {
+      text-decoration: none;
+      color: black;
+    }
+    .signup a {
+      text-decoration: none;
+      color: white;
+    }
+    .logo img{
+      width: 40px;
+      height: 40px;
+      margin-left: -10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo"> <img src="./assets/logo.jpg" alt="">Plateful</div>
+    <nav>
+                <p class="home"><a href="./home.html">🏠︎</a></p>
+
+    </nav>
+  </header>
+
+  <div class="search-bar">
+    <input type="text" placeholder="Search for restaurants, dishes or cuisines">
+    <select>
+      <option>Sort: Popular</option>
+      <option>Rating</option>
+      <option>Delivery Time</option>
+    </select>
+  </div>
+
+  <div class="categories">
+    <button>Burgers</button>
+    <button>Indian</button>
+    <button>Chinese</button>
+    <button>Desserts</button>
+    <button>Healthy</button>
+
+  </div>
+
+  <div class="container">
+    <div class="restaurants">
+        <div class="card">
+        <img src="./assets/pizza hut.jpeg" alt="Chinese Food" style="width: auto;">
+        <h3>Pizza Hut</h3>
+        <div class="info">• 18-28 mins</div>
+        <button><a href="./buzzy.html">Quick View </a></button>
+        </div>
+      <div class="card">
+        <img src="./assets/dominos.png" alt="Pizza">
+        <h3>Domino's Pizza</h3>
+        <div class="info">• 45-55 mins</div>
+        <button><a href="./nandhana.html">Quick View</a></button>
+      </div>
+      <div class="card">
+        <img src="./assets/flames.jpg" alt="Salad">
+        <h3>Flames Pizza</h3>
+        <div class="info">• 20-30 mins</div>
+        <button><a href="./burger.html">Quick View</a></button>
+      </div>
+      <div class="card">
+        <img src="./assets/gopizza.jpeg" alt="Indian Food">
+        <h3>GOPIZZA</h3>
+        <div class="info">• 40-55 mins</div>
+        <button><a href="./leons.html">Quick View</a></button>
+      </div>
+      
+      
+    </div>
+    <div class="map">Map Placeholder</div>
+  </div>
+
+  <footer>
+    
+  </footer>
+</body>
+</html>
